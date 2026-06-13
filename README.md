@@ -1,4 +1,5 @@
 Proyecto integrador de la materia "Fundamentos de programación" inpartida por el profesor Gandhi Hernandez en el Instituto Superior Tecnológico Inmaculada Concepción (ISTIC) 
+
 Alumno: Gregory Rodriguez
 
 Comenzando 🚀

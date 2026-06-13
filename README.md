@@ -29,20 +29,20 @@ hacer un clon del repositorio
 Desde el terminal entrar en la carpeta Python
 
   cd python
-Estando dentro del proyecto desde terminal se debe crear un entorno virtual
+  
+Estando dentro del proyecto desde terminal se debe correr el archivo pyproject.toml, el cual contiene las librerias utilizadas para el proyecto
 
-  python -m venv .venv
-Para activar el entorno virtual se debe entrar en la carpeta .venv/Scrips y correr Activate de la siguiente manera
+  pip install poetry
+  
+Para verificar la instalacion 
 
-  cd .\.venv\Scripts\
-  .\activate
-Volvemos a la carpeta raiz de nuestro proyecto
+  poetry --version
+  
+  Al verificar instalar con:
 
-  cd ../..
+  poetry install 
+  
 Se deben instalar las dependencias utilizadas en el proyecto para que funciona de manera optima
-
-  pip install -r requirements.txt
-para hacer un despliegue con ejecutable desde windows se debe usar:
 
     pyinstaller --onefile app.py
 al correr este comando se crearan dos carpetas denominadas build y dist

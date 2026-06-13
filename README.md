@@ -3,6 +3,7 @@ Proyecto integrador de la materia "Fundamentos de programación" inpartida por e
 Alumno: Gregory Rodriguez
 
 Comenzando 🚀
+
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
 Prerrequisitos 📋

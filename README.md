@@ -44,12 +44,7 @@ Para verificar la instalacion
   
 Se deben instalar las dependencias utilizadas en el proyecto para que funciona de manera optima
 
-    pyinstaller --onefile app.py
-al correr este comando se crearan dos carpetas denominadas build y dist
-
-dentro de la carpeta dist encontraremos un archivo llamado app.exe
-
-este ejecutable de windows puede utilizarse directamente desde el escritorio de su pc otorgandole un acceso directo, se puede modificar el nombre y el icono
+Continuar .....
 
 Forma de uso
 

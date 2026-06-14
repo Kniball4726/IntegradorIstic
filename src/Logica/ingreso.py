@@ -1,6 +1,9 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
 from src.Logica.menu import menuPrincipal as menu
 import time
+import colorama
+from colorama import init, Fore, Style
+init(autoreset=True)
 
 dni:int=0
 user:str=""
@@ -25,38 +28,55 @@ usuarios={
 def ingreso():
 
     """
-        Programa de ingreso al sistema con datos hardcodeados
+    Función que maneja el proceso de ingreso al sistema. Solicita al usuario que ingrese su DNI, nombre de usuario y contraseña. Verifica si el DNI está registrado en el sistema y si las credenciales son correctas. Si el ingreso es exitoso, redirige al menú principal según el rol del usuario (Admin o Usuario). Si el ingreso falla, muestra mensajes de error y vuelve a solicitar los datos de ingreso.
+     - Si el DNI no está registrado, muestra un mensaje indicando que el DNI no se encuentra registrado y vuelve a solicitar los datos de ingreso.
+     - Si el usuario o la contraseña son incorrectos, muestra un mensaje indicando que el usuario o la contraseña son incorrectos y vuelve a solicitar los datos de ingreso.
+     - Si el usuario interrumpe el proceso de ingreso (por ejemplo, presionando Ctrl+C), muestra un mensaje indicando que se está saliendo del sistema y termina la ejecución del programa.
+     - Si el usuario ingresa un valor no numérico para el DNI, muestra un mensaje indicando que se debe indicar un número válido y vuelve a solicitar los datos de ingreso.
+     - Si el usuario ingresa un valor no numérico para el DNI, muestra un mensaje indicando que se debe indicar un número válido y vuelve a solicitar los datos de ingreso.  
+
     """
     
     global dni, password, user, usuarios
     
     try:
         bp()
-        print("Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n")
+        print(Fore.GREEN + Style.BRIGHT + "Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n" + Style.RESET_ALL)
         dni=int(input("Indique su DNI: "))
         
         if dni in usuarios: 
             user=input("\nIndique su usuario: ").capitalize()
             password=input("\nIndique su contraseña: ")
             if user == usuarios[dni]["user"] and usuarios[dni]["password"] == password:
-                menu(usuarios[dni]["role"])
+                role = usuarios[dni]["role"]
+                menu(role)
+            elif user != usuarios[dni]["user"] and usuarios[dni]["password"] == password:
+                print("\nUsuario incorrecto")
+                time.sleep(2)
+                ingreso()
+            elif user == usuarios[dni]["user"] and usuarios[dni]["password"] != password:
+                print("\nContraseña incorrecta")
+                time.sleep(2)
+                ingreso()
             else:
-                print("\nUsuario o contraseña incorrecto") 
+                print("\nUsuario y contraseña incorrecto") 
+                time.sleep(2)
                 ingreso()
         else:
-            print("El DNI no se encuentra registrado")
+            print(Fore.RED + Style.BRIGHT + "\nEl DNI no se encuentra registrado" + Style.RESET_ALL)
+            time.sleep(2)
             ingreso()
                 
     except ValueError:
-        print("\nIndique un número valido")
+        print(Fore.RED + Style.BRIGHT + "\nIndique un número valido" + Style.RESET_ALL)
         time.sleep(2)
         ingreso()
     except TypeError:
-        print("\nIndique un número valido")
+        print(Fore.RED + Style.BRIGHT + "\nIndique un número valido" + Style.RESET_ALL)
         time.sleep(2)
         ingreso()
     except KeyboardInterrupt:
-        print("\nSaliendo . . .")
+        print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(2)
         exit()
     

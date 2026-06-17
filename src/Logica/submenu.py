@@ -1,4 +1,4 @@
-from Logica.menu import menuPrincipal
+from src.Logica.menu import menuPrincipal
 from src.Logica.helpers.helpers import borrarPantalla as bp
 import time
 import colorama

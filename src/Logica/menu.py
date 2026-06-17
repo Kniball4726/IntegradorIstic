@@ -1,6 +1,5 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
 from src.Logica.opciones import *
-from src.Logica.submenu import subMenu as submenu
 import colorama
 from colorama import init, Fore, Style
 
@@ -44,6 +43,7 @@ def menuPrincipal(role:str=""):
                     print("Menú eliminar pedidos")
                 case 6:
                     if role == "Admin":
+                        from src.Logica.submenu import subMenu as submenu
                         submenu()
                     else:
                         print(Fore.RED + Style.BRIGHT + "\nUsted no es un administrador." + Style.RESET_ALL)

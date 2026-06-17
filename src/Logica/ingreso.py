@@ -51,15 +51,15 @@ def ingreso():
                 role = usuarios[dni]["role"]
                 menu(role)
             elif user != usuarios[dni]["user"] and usuarios[dni]["password"] == password:
-                print("\nUsuario incorrecto")
+                print(Fore.RED + Style.BRIGHT + "\nUsuario incorrecto" + Style.RESET_ALL)
                 time.sleep(2)
                 ingreso()
             elif user == usuarios[dni]["user"] and usuarios[dni]["password"] != password:
-                print("\nContraseña incorrecta")
+                print(Fore.RED + Style.BRIGHT + "\nContraseña incorrecta" + Style.RESET_ALL)
                 time.sleep(2)
                 ingreso()
             else:
-                print("\nUsuario y contraseña incorrecto") 
+                print(Fore.RED + Style.BRIGHT + "\nUsuario y contraseña incorrecto" + Style.RESET_ALL)
                 time.sleep(2)
                 ingreso()
         else:

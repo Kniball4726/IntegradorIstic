@@ -1,3 +1,4 @@
+from Logica.menu import menuPrincipal
 from src.Logica.helpers.helpers import borrarPantalla as bp
 import time
 import colorama
@@ -20,15 +21,36 @@ def subMenu():
     """
     global opcion,submenu
     try:
-        bp()
-    
-        print(Fore.GREEN + Style.BRIGHT + "Menú gestión de usuarios\n" + Style.RESET_ALL)
+        while opcion != 6:
+            bp()
+        
+            print(Fore.GREEN + Style.BRIGHT + "Menú gestión de usuarios\n" + Style.RESET_ALL)
 
-        submenu=["1.-Agregar usuario","2.-Buscar usuario","3.-Ver usuarios","4.-Modificar usuario","5.-Eliminar usuario","6.-Volver al menú principal"]
-        for s in submenu:
-            print(s)
+            submenu=["1.-Agregar usuario","2.-Buscar usuario","3.-Ver usuarios","4.-Modificar usuario","5.-Eliminar usuario","6.-Volver al menú principal"]
+            for s in submenu:
+                print(s)
 
-        opcion=int(input(Fore.GREEN + Style.BRIGHT + "\nIndique opción: " + Style.RESET_ALL))
+            opcion=int(input(Fore.GREEN + Style.BRIGHT + "\nIndique opción: " + Style.RESET_ALL))
+
+            match opcion:
+                case 1:
+                    print("Menú agregar usuario")
+                case 2:
+                    print("Menú buscar usuario")
+                case 3:
+                    print("Menú ver usuarios")
+                case 4:
+                    print("Menú modificar usuario")
+                case 5:
+                    print("Menú eliminar usuario")
+                case 6:
+                    print(Fore.RED + Style.BRIGHT + "\nVolviendo al menú principal . . ." + Style.RESET_ALL)
+                    time.sleep(2)
+                    menuPrincipal("Admin")
+                case _:
+                    print(Fore.RED + Style.BRIGHT + "\nOpción no válida" + Style.RESET_ALL)
+                    time.sleep(2)
+                    continue
     except ValueError:
         print(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         time.sleep(2)

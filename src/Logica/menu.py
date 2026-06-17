@@ -1,4 +1,5 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
+import src.Logica.ingreso as ingreso
 from src.Logica.opciones import *
 import colorama
 from colorama import init, Fore, Style
@@ -52,7 +53,7 @@ def menuPrincipal(role:str=""):
                 case 7:
                     print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
                     time.sleep(2)
-                    exit()
+                    ingreso.ingreso()
                 case _:
                     print(Fore.RED + Style.BRIGHT + "\nOpción no válida" + Style.RESET_ALL)
                     time.sleep(2)

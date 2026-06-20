@@ -1,14 +1,15 @@
 from src.Logica.menu import menuPrincipal
 from src.Logica.helpers.helpers import borrarPantalla as bp
+from src.Logica.opcionesUsuarios import *
 import time
-import colorama
 from colorama import init, Fore, Style
+
 init(autoreset=True)
 
-opcion:int=0
+opcion:str=""
 submenu:list=[]
 
-def subMenu():
+def subMenu(dni:int=0):
     """
     Función que muestra el submenú de gestión de usuarios para los administradores. Permite agregar, buscar, ver, modificar y eliminar usuarios, así como volver al menú principal. Redirige a las funciones correspondientes según la opción seleccionada por el usuario.
      - Opción 1: Agregar usuario. Redirige a la función 'agregarUsuario' para agregar un nuevo usuario al sistema.
@@ -21,7 +22,7 @@ def subMenu():
     """
     global opcion,submenu
     try:
-        while opcion != 6:
+        while opcion != "6":
             bp()
         
             print(Fore.GREEN + Style.BRIGHT + "Menú gestión de usuarios\n" + Style.RESET_ALL)
@@ -30,20 +31,20 @@ def subMenu():
             for s in submenu:
                 print(s)
 
-            opcion=int(input(Fore.GREEN + Style.BRIGHT + "\nIndique opción: " + Style.RESET_ALL))
+            opcion=input(Fore.GREEN + Style.BRIGHT + "\nIndique opción: " + Style.RESET_ALL).strip()
 
             match opcion:
-                case 1:
-                    print("Menú agregar usuario")
-                case 2:
+                case "1":
+                    agregarUsuario()
+                case "2":
                     print("Menú buscar usuario")
-                case 3:
-                    print("Menú ver usuarios")
-                case 4:
+                case "3":
+                    verUsuarios(dni)
+                case "4":
                     print("Menú modificar usuario")
-                case 5:
+                case "5":
                     print("Menú eliminar usuario")
-                case 6:
+                case "6":
                     print(Fore.RED + Style.BRIGHT + "\nVolviendo al menú principal . . ." + Style.RESET_ALL)
                     time.sleep(2)
                     menuPrincipal("Admin")

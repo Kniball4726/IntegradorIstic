@@ -1,29 +1,14 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
 from src.Logica.menu import menuPrincipal as menu
+from src.Persistencia.datos.estructuras import usuarios
 import time
-import colorama
 from colorama import init, Fore, Style
 init(autoreset=True)
 
 dni:int=0
 user:str=""
 password:str=""
-usuarios:dict={}
-
-usuarios={
-    95777596:{
-        "user":"Admin",
-        "password":"admin123",
-        "role":"Admin"
-    },
-    12345678:{
-        "user":"Usuario",
-        "password":"usuario123",
-        "role":"User"
-    }
-}
-
-
+usuarios:dict=usuarios
 
 def ingreso():
 
@@ -40,33 +25,34 @@ def ingreso():
     global dni, password, user, usuarios
     
     try:
-        bp()
-        print(Fore.GREEN + Style.BRIGHT + "Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n" + Style.RESET_ALL)
-        dni=int(input("Indique su DNI: "))
-        
-        if dni in usuarios: 
-            user=input("\nIndique su usuario: ").capitalize()
-            password=input("\nIndique su contraseña: ")
-            if user == usuarios[dni]["user"] and usuarios[dni]["password"] == password:
-                role = usuarios[dni]["role"]
-                menu(role)
-            elif user != usuarios[dni]["user"] and usuarios[dni]["password"] == password:
-                print(Fore.RED + Style.BRIGHT + "\nUsuario incorrecto" + Style.RESET_ALL)
-                time.sleep(2)
-                ingreso()
-            elif user == usuarios[dni]["user"] and usuarios[dni]["password"] != password:
-                print(Fore.RED + Style.BRIGHT + "\nContraseña incorrecta" + Style.RESET_ALL)
-                time.sleep(2)
-                ingreso()
+        while True:
+            bp()
+            print(Fore.GREEN + Style.BRIGHT + "Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n" + Style.RESET_ALL)
+            dni=int(input("Indique su DNI: "))
+            
+            if dni in usuarios: 
+                user=input("\nIndique su usuario: ").capitalize()
+                password=input("\nIndique su contraseña: ")
+                if user == usuarios[dni]["user"] and usuarios[dni]["password"] == password:
+                    role = usuarios[dni]["role"]
+                    menu(role, user)
+                elif user != usuarios[dni]["user"] and usuarios[dni]["password"] == password:
+                    print(Fore.RED + Style.BRIGHT + "\nUsuario incorrecto" + Style.RESET_ALL)
+                    time.sleep(2)
+                    continue
+                elif user == usuarios[dni]["user"] and usuarios[dni]["password"] != password:
+                    print(Fore.RED + Style.BRIGHT + "\nContraseña incorrecta" + Style.RESET_ALL)
+                    time.sleep(2)
+                    continue
+                else:
+                    print(Fore.RED + Style.BRIGHT + "\nUsuario y contraseña incorrecto" + Style.RESET_ALL)
+                    time.sleep(2)
+                    continue
             else:
-                print(Fore.RED + Style.BRIGHT + "\nUsuario y contraseña incorrecto" + Style.RESET_ALL)
+                print(Fore.RED + Style.BRIGHT + "\nEl DNI no se encuentra registrado" + Style.RESET_ALL)
                 time.sleep(2)
-                ingreso()
-        else:
-            print(Fore.RED + Style.BRIGHT + "\nEl DNI no se encuentra registrado" + Style.RESET_ALL)
-            time.sleep(2)
-            ingreso()
-                
+                continue
+
     except ValueError:
         print(Fore.RED + Style.BRIGHT + "\nIndique un número valido" + Style.RESET_ALL)
         time.sleep(2)
@@ -80,3 +66,4 @@ def ingreso():
         time.sleep(2)
         exit()
     
+    return user, password, role

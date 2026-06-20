@@ -1,0 +1,12 @@
+usuarios={
+    95777596:{
+        "user":"Gregory",
+        "password":"admin123",
+        "role":"Admin"
+    },
+    12345678:{
+        "user":"Usuario",
+        "password":"usuario123",
+        "role":"User"
+    }
+}

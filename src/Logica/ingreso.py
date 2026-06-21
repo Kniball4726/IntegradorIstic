@@ -28,7 +28,8 @@ def ingreso():
         while True:
             bp()
             print(Fore.GREEN + Style.BRIGHT + "Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n" + Style.RESET_ALL)
-            dni=int(input("Indique su DNI: "))
+            print(Fore.RED+"Para salir coloque DNI 1")
+            dni=int(input("\nIndique su DNI: "))
             
             if dni in usuarios: 
                 user=input("\nIndique su usuario: ").capitalize()
@@ -48,6 +49,10 @@ def ingreso():
                     print(Fore.RED + Style.BRIGHT + "\nUsuario y contraseña incorrecto" + Style.RESET_ALL)
                     time.sleep(2)
                     continue
+            elif dni == 1:
+                print(Fore.RED +"\nSaliendo . . .")
+                time.sleep(2)
+                return False
             else:
                 print(Fore.RED + Style.BRIGHT + "\nEl DNI no se encuentra registrado" + Style.RESET_ALL)
                 time.sleep(2)

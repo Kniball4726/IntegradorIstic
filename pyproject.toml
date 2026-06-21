@@ -6,7 +6,7 @@ authors = [
     {name = "Gregory Rodriguez"}
 ]
 license = "MIT"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<3.16"
 dependencies = [
     "colorama (>=0.4.6,<0.5.0)"
 ]
@@ -15,3 +15,8 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pyinstaller (>=6.21.0,<7.0.0)"
+]

@@ -1,7 +1,8 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
 import src.Logica.ingreso as ingreso
-from src.Logica.opcionesUsuarios import *
+from src.Logica.opcionesMenu import buscarPedido, agregarPedido, verPedidos
 from colorama import init, Fore, Style
+import time
 
 init(autoreset=True)
 
@@ -36,11 +37,11 @@ def menuPrincipal(role:str="",nombre:str=""):
 
             match opcion:
                 case "1":
-                    print("Menú agregar pedidos")
+                    agregarPedido()
                 case "2":
-                    print("Menú buscar pedidos")
+                    buscarPedido()
                 case "3":
-                    print("Menú ver pedidos")
+                    verPedidos()
                 case "4":
                     print("Menú modificar pedidos")
                 case "5":

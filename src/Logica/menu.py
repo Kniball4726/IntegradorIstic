@@ -1,6 +1,6 @@
 from src.Logica.helpers.helpers import borrarPantalla as bp
 import src.Logica.ingreso as ingreso
-from src.Logica.opcionesMenu import buscarPedido, agregarPedido, verPedidos
+from src.Logica.opcionesMenu import buscarPedido, agregarPedido, verPedidos, modificarPedido, eliminarPedido
 from colorama import init, Fore, Style
 import time
 
@@ -43,9 +43,9 @@ def menuPrincipal(role:str="",nombre:str=""):
                 case "3":
                     verPedidos()
                 case "4":
-                    print("Menú modificar pedidos")
+                    modificarPedido()
                 case "5":
-                    print("Menú eliminar pedidos")
+                    eliminarPedido()
                 case "6":
                     if role == "Admin":
                         from src.Logica.submenu import subMenu as submenu

@@ -70,5 +70,3 @@ def ingreso():
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(2)
         exit()
-    
-    return user, password, role

@@ -1,6 +1,6 @@
 from src.Logica.menu import menuPrincipal
 from src.Logica.helpers.helpers import borrarPantalla as bp
-from src.Logica.opcionesUsuarios import *
+from src.Logica.opcionesUsuarios import agregarUsuario, verUsuarios
 import time
 from colorama import init, Fore, Style
 
@@ -39,7 +39,7 @@ def subMenu(dni:int=0):
                 case "2":
                     print("Menú buscar usuario")
                 case "3":
-                    verUsuarios(dni)
+                    verUsuarios()
                 case "4":
                     print("Menú modificar usuario")
                 case "5":

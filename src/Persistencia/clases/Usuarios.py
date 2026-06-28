@@ -1,7 +1,7 @@
 class Usuarios:
     """Clase que representa a un usuario del sistema. Contiene atributos como el nombre de usuario, contraseña y rol (Admin o Usuario). También incluye métodos para obtener y establecer estos atributos, así como un método para mostrar toda la información del usuario.
     """
-    def __init__(self, user, password, role):
+    def __init__(self, user:str, password:str, role:str):
         self.user=user
         self.password=password
         self.role=role

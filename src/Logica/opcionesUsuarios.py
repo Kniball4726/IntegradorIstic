@@ -2,9 +2,9 @@ import time
 from colorama import init, Fore, Style
 init(autoreset=True)
 
-from src.Logica.helpers.helpers import borrarPantalla as bp
-from src.Persistencia.datos.estructuras import usuarios as usuarios
-from src.Persistencia.clases.Usuarios import Usuarios
+from .helpers.helpers import borrarPantalla as bp
+from ..Persistencia.datos.estructuras import usuarios as usuarios
+from ..Persistencia.clases.Usuarios import Usuarios
 
 def agregarUsuario():
     """Función que permite agregar un nuevo usuario al sistema."""

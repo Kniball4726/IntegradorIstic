@@ -1,0 +1,13 @@
+{
+  "include": [
+    "src",
+    "main.py"
+  ],
+  "pythonVersion": "3.14",
+  "pythonPlatform": "Windows",
+  "venvPath": "c:\\",
+  "venv": ".venv",
+  "extraPaths": [
+    "."
+  ]
+}

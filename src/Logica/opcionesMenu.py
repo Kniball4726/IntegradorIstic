@@ -1,6 +1,6 @@
 import time
-from src.Persistencia.datos.estructuras import pedidos as pedidos
-from src.Logica.helpers.helpers import borrarPantalla as bp
+from ..Persistencia.datos.estructuras import pedidos as pedidos
+from .helpers.helpers import borrarPantalla as bp
 from colorama import init, Fore, Style
 init(autoreset=True)
 

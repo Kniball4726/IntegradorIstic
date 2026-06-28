@@ -1,6 +1,6 @@
-from src.Logica.menu import menuPrincipal
-from src.Logica.helpers.helpers import borrarPantalla as bp
-from src.Logica.opcionesUsuarios import agregarUsuario, verUsuarios
+from .menu import menuPrincipal
+from .helpers.helpers import borrarPantalla as bp
+from .opcionesUsuarios import agregarUsuario, buscarUsuario, verUsuarios, modificarUsuario, eliminarUsuario
 import time
 from colorama import init, Fore, Style
 
@@ -21,6 +21,7 @@ def subMenu(dni:int=0):
      - Opción no válida: Si el usuario selecciona una opción que no está en el submenú, muestra un mensaje indicando que la opción no es válida y vuelve a mostrar el submenú.
     """
     global opcion,submenu
+    opcion = ""  # Resetear para que el while funcione correctamente
     try:
         while opcion != "6":
             bp()
@@ -37,13 +38,13 @@ def subMenu(dni:int=0):
                 case "1":
                     agregarUsuario()
                 case "2":
-                    print("Menú buscar usuario")
+                    buscarUsuario()
                 case "3":
                     verUsuarios()
                 case "4":
-                    print("Menú modificar usuario")
+                    modificarUsuario()
                 case "5":
-                    print("Menú eliminar usuario")
+                    eliminarUsuario()
                 case "6":
                     print(Fore.RED + Style.BRIGHT + "\nVolviendo al menú principal . . ." + Style.RESET_ALL)
                     time.sleep(2)

@@ -1,6 +1,6 @@
-from src.Logica.helpers.helpers import borrarPantalla as bp
-from src.Logica.menu import menuPrincipal as menu
-from src.Persistencia.datos.estructuras import usuarios
+from .helpers.helpers import borrarPantalla as bp
+from .menu import menuPrincipal as menu
+from ..Persistencia.datos.estructuras import usuarios
 import time
 from colorama import init, Fore, Style
 init(autoreset=True)

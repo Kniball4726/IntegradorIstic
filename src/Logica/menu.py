@@ -1,6 +1,6 @@
-from src.Logica.helpers.helpers import borrarPantalla as bp
-import src.Logica.ingreso as ingreso
-from src.Logica.opcionesMenu import buscarPedido, agregarPedido, verPedidos, modificarPedido, eliminarPedido
+from .helpers.helpers import borrarPantalla as bp
+from . import ingreso
+from .opcionesMenu import buscarPedido, agregarPedido, verPedidos, modificarPedido, eliminarPedido
 from colorama import init, Fore, Style
 import time
 
@@ -48,7 +48,7 @@ def menuPrincipal(role:str="",nombre:str=""):
                     eliminarPedido()
                 case "6":
                     if role == "Admin":
-                        from src.Logica.submenu import subMenu as submenu
+                        from .submenu import subMenu as submenu
                         submenu()
                     else:
                         print(Fore.RED + Style.BRIGHT + "\nUsted no es un administrador." + Style.RESET_ALL)
